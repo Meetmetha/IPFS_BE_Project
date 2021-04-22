@@ -146,12 +146,12 @@ class Home extends Component {
           const OriginalFile = this.decryptfile(data,this.state.password)
           if(OriginalFile==null)
           {
+            db.getalluseripfsdataCopy(localStorage.getItem('useruid'))
             this.setState({
               modalOpen: true,
               failure: `You Entered Wrong Password`
             })
           }else{
-            db.getalluseripfsdataCopy(localStorage.getItem('useruid'))
             this.setState({
               data: OriginalFile,
               password: ''
